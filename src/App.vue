@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import {  RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <router-view v-slot="{ Component, route }">
+      <keep-alive :max="10" :include="['LayoutBasic']">
+        <component :is="Component" :key="route.path" />
+      </keep-alive>
+    </router-view>
 </template>
 
-<style scoped>
+<style scoped >
 header {
   line-height: 1.5;
   max-height: 100vh;
