@@ -3,11 +3,12 @@ import { createPinia } from 'pinia'
 
 
 import 'element-plus/dist/index.css'
+import './style/main.css'
 
 import App from './App.vue'
 import router from './router'
 
-import './assets/main.css'
+
 import { setupPlugins } from './plugins';
 
 async function  bootstrap() {
