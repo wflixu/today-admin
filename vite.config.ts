@@ -6,6 +6,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import DefineOptions from 'unplugin-vue-define-options/vite'
+
 // @ts-ignore
 import postcssImport from 'postcss-import';
 import postcssNested from 'postcss-nested';
@@ -19,6 +21,7 @@ export default defineConfig({
   Components({
     resolvers: [ElementPlusResolver()],
   }),
+  DefineOptions()
   ],
   css:{
     postcss: {
