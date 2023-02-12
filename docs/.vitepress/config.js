@@ -1,4 +1,4 @@
 export default {
     title: 'today-admin',
-    description: 'Just playing around.'
+    description: 'A admin '
   }
