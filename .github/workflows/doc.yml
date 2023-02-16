@@ -1,7 +1,10 @@
 name: Deploy docs
 on:
-  workflow_dispatch: {}
   push:
+    branches:
+      - main
+      - dev
+  pull_request:
     branches:
       - main
 jobs:
@@ -21,9 +24,9 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: npm ci
       - name: Build
-        run: yarn docs:build
+        run: npm run docs:build
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
