@@ -30,10 +30,10 @@
         </el-sub-menu>
 
         <el-menu-item v-else :index="menu.location">
+          <el-icon>
+            <component :is="menu.icon"></component>
+          </el-icon>
           <template #title>
-            <el-icon>
-              <component :is="menu.icon"></component>
-            </el-icon>
             <span>
               {{ menu.title }}
             </span>

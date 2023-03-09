@@ -7,14 +7,14 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import DefineOptions from 'unplugin-vue-define-options/vite'
-
+import svgLoader from 'vite-svg-loader'
 // @ts-ignore
 import postcssImport from 'postcss-import';
 import postcssNested from 'postcss-nested';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx(),
+  plugins: [vue(), vueJsx(),svgLoader(),
   AutoImport({
     resolvers: [ElementPlusResolver()],
   }),
