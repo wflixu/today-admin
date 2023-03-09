@@ -1,13 +1,17 @@
 import type { RouteRecordRaw } from 'vue-router';
 import LayoutAdmin from '@/layout/admin/LayoutAdmin.vue';
-import Admin from './Admin.vue';
 export const adminRoute: RouteRecordRaw = {
-  path: '/admin',
+  path: '/auth',
   component: LayoutAdmin,
+//   redirect: '/auth/page',
   children: [
     {
-      path: '',
-      component: Admin,
+      path: 'page',
+      component: () => import('./AuthPage.vue'),
+    },
+    {
+      path: 'role',
+      component: () => import('./AuthRole.vue'),
     },
   ],
 };

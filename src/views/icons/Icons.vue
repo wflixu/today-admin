@@ -1,5 +1,6 @@
 <template>
   <div class="icons">
+    <h1>icons search pages</h1>
     <div>
       <el-input v-model="icon"></el-input>
     </div>

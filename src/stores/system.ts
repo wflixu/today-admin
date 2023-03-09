@@ -1,5 +1,13 @@
 import { defineStore } from 'pinia';
 
+export interface MenuItem {
+        title: string,
+        id: string,
+        location: string,
+        icon: string,
+        children: MenuItem[] | null,
+}
+
 export const useSystemStore = defineStore({
   id: 'system',
   state: () => ({
@@ -27,16 +35,16 @@ export const useSystemStore = defineStore({
           {
             title: '页面权限',
             id:'auth-page',
-            location:'/auth/page'
+            location:'/page'
           },
           {
             title: '角色权限',
             id:'auth-role',
-            location:'/auth/role'
+            location:'/role'
           }
         ],
       },
-    ],
+    ] ,
   }),
   getters: {},
   actions: {},

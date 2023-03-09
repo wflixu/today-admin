@@ -12,7 +12,7 @@ specifiers:
   '@vue/eslint-config-typescript': ^11.0.0
   '@vue/test-utils': ^2.0.2
   '@vue/tsconfig': ^0.1.3
-  element-plus: ^2.2.33
+  element-plus: ^2.2.36
   eslint: ^8.22.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.0.0
@@ -47,7 +47,7 @@ specifiers:
 
 dependencies:
   '@element-plus/icons-vue': 2.0.10_vue@3.2.47
-  element-plus: 2.2.33_vue@3.2.47
+  element-plus: 2.2.36_vue@3.2.47
   pinia: 2.0.32_5yi2kxxaqg74pgvs6b75qdtvru
   vue: 3.2.47
   vue-router: 4.1.6_vue@3.2.47
@@ -1931,8 +1931,8 @@ packages:
     resolution: {integrity: sha512-h70iRscrNluMZPVICXYl5SSB+rBKo22XfuIS1ER0OQxQZpKTnFpuS6coj7wY9M/3trv7OR88rRMOlKmRvDty7Q==}
     dev: true
 
-  /element-plus/2.2.33_vue@3.2.47:
-    resolution: {integrity: sha512-E/PmMnv4+4I9Ue0ZDfx2gGgGj4iBlTCWcES3o4jxfYjayFlcQO3UvElJzhaJZ8vDm9yfNN7t2w/xYOhsSYCNNg==}
+  /element-plus/2.2.36_vue@3.2.47:
+    resolution: {integrity: sha512-9DzLqOVuw8P5Ck8Uqd9XdnDYVg2Z3iosZ1gtk2xDCWNqeoACpldP5gxa/Hbfgp4QeA3xC+f3g+UeoKKu79l28g==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

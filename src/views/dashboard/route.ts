@@ -3,8 +3,11 @@ import LayoutAdmin from '@/layout/admin/LayoutAdmin.vue';
  import Dashboard from './Dashboard.vue';
 export const dashboardRoute: RouteRecordRaw = {
   path: '/dashboard',
-  name: 'dashboard',
   component: LayoutAdmin,
+  
+  meta: {
+    alive:false,
+  },
   children: [
     {
       path: '',

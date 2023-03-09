@@ -43,8 +43,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
-import { ref } from 'vue';
-import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue';
+
 import HeaderContent from './components/HeaderContent.vue';
 import AsideContent from './components/AsideContent.vue';
 import { useLayoutAdminStore } from '@/stores/layout';

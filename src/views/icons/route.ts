@@ -3,8 +3,10 @@ import LayoutAdmin from '@/layout/admin/LayoutAdmin.vue';
  import Icons from './Icons.vue';
 export const iconsRoute: RouteRecordRaw = {
   path: '/icons',
-  name: 'icons',
   component: LayoutAdmin,
+  meta: {
+    alive:false,
+  },
   children: [
     {
       path: '',
