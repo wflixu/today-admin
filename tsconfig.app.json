@@ -1,13 +1,13 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": ["src/**/__tests__/*"],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.vue", "src/**/*.tsx", "src/**/*.d.ts", "mock/**/*.ts" ],
+  "exclude": ["src/**/__tests__/*",],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["element-plus/global", "unplugin-vue-define-options/macros-global", "src/types/app.d.ts"]
+    "types": ["element-plus/global", "unplugin-vue-define-options/macros-global", "src/types/app.d.ts", "vite/client"]
   }
 }

@@ -1,7 +1,7 @@
 
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import LayoutAdmin from '@/layout/admin/LayoutAdmin.vue';
-
+import Exception from '@/views/exception/Exception.vue'
 // 自动导入modules文件夹下所有ts文件
 const modules = import.meta.glob('./../views/**/route.ts', { eager: true });
 
@@ -35,12 +35,17 @@ const defaultRouterList: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/:w+',
-    name: '404Page',
-    redirect: '/result/404',
-    children:[
-      
-    ]
+     path: '/:pathMatch(.*)*', 
+     name: 'ExceptionParent', 
+     component: LayoutAdmin,
+     redirect:'/exception/' ,
+     children:[
+      {
+        path: '',
+        name: 'Exception', 
+        component: Exception
+      }
+     ] 
   },
 ];
 
