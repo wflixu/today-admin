@@ -24,6 +24,13 @@ export default {
           { text: '体系结构', link: '/guide/architecture' },
         ]
       },
+      {
+        text: '常用功能',
+        collapsed: true,
+        items: [
+          { text: 'mock', link: '/function/mock' },
+        ]
+      },
     ]
   }
   }

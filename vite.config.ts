@@ -12,6 +12,8 @@ import svgLoader from 'vite-svg-loader'
 import postcssImport from 'postcss-import';
 import postcssNested from 'postcss-nested';
 
+import mockServer from 'vite-plugin-mock-server'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), vueJsx(),svgLoader(),
@@ -21,7 +23,11 @@ export default defineConfig({
   Components({
     resolvers: [ElementPlusResolver()],
   }),
-  DefineOptions()
+  DefineOptions(),
+  // mockserver
+  mockServer({
+    logLevel: 'info'
+  })
   ],
   css:{
     postcss: {
