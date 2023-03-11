@@ -5,7 +5,7 @@ export const useLayoutAdminStore = defineStore({
   state: () => ({
     sidebarExpanded: true,
     showFooter:false,
-    activeMenu:'/dashboard'
+  
   }),
   getters: {
    
