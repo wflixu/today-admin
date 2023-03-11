@@ -1,3 +1,5 @@
+
+import { treeFindNode, treeFindPath } from '@/util';
 import { defineStore } from 'pinia';
 
 export interface MenuItem {
@@ -44,8 +46,29 @@ export const useSystemStore = defineStore({
           }
         ],
       },
-    ] ,
+    ]  as  MenuItem[],
+    activeMenu:'dashboard',
+    openedMenu:[{
+      title:'首页',
+      id:'dashboard'
+    }],
   }),
-  getters: {},
-  actions: {},
+  getters: {
+    activeRoutePath:(state) => {
+      if(!state.activeMenu || state.menus?.length<1 ) {
+        return '';
+      }
+      return treeFindPath(state.menus,state.activeMenu);
+    }
+  },
+  actions: {
+    addOpened(menu:{title:string,id:string}){
+      let opened = this.openedMenu.find(item => item.id == menu.id);
+       if(!opened) {
+        this.openedMenu.push(menu );
+       }
+    }
+  },
 });
+
+

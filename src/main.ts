@@ -11,11 +11,13 @@ import router from './router'
 
 
 import { setupPlugins } from './plugins';
+import { setupCustomComponents } from './components';
 
 async function  bootstrap() {
     const app = createApp(App);
 
     setupPlugins(app);
+    setupCustomComponents(app)
     app.use(createPinia());
     app.use(router);
     app.mount('#app')

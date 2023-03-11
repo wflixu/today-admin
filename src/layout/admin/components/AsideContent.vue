@@ -10,7 +10,7 @@
       text-color="#fff"
     >
       <template v-for="menu in menus">
-        <el-sub-menu v-if="menu.children" :index="menu.location">
+        <el-sub-menu v-if="menu.children" :index="menu.id">
           <template #title>
             <el-icon>
               <component :is="menu.icon"></component>
@@ -18,18 +18,18 @@
             <span>{{ menu.title }}</span>
           </template>
           <template v-for="subMenu in menu.children">
-            <el-sub-menu v-if="subMenu.children" :index="subMenu.location">
+            <el-sub-menu v-if="subMenu.children" :index="subMenu.id">
               <template #title>
                 <span>
                   {{ subMenu.title }}
                 </span>
               </template>
             </el-sub-menu>
-            <el-menu-item v-else :index="subMenu.location">{{ subMenu.title }}</el-menu-item>
+            <el-menu-item v-else :index="subMenu.id">{{ subMenu.title }}</el-menu-item>
           </template>
         </el-sub-menu>
 
-        <el-menu-item v-else :index="menu.location">
+        <el-menu-item v-else :index="menu.id">
           <el-icon>
             <component :is="menu.icon"></component>
           </el-icon>
@@ -53,20 +53,29 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 const layoutAdminStore = useLayoutAdminStore();
 const systemStore = useSystemStore();
-console.log('---init aside: ', layoutAdminStore.activeMenu);
+console.log('---init aside: ', systemStore.activeMenu);
 const isCollapse = computed(() => {
   return !layoutAdminStore.sidebarExpanded;
 });
 const defaultActive = computed(() => {
-  return layoutAdminStore.activeMenu;
+  return systemStore.activeMenu;
 });
 const onSelect = (index: any, indexPath: string[]) => {
-  const uri = indexPath.reduce((pre, cur) => {
-    return pre + cur;
-  }, '');
-  layoutAdminStore.activeMenu = index;
-  console.log(index, indexPath, uri, router.getRoutes());
-  router.push(uri);
+  let uri = '';
+  let current;
+  indexPath.reduce((pre: MenuItem[], cur: string) => {
+    current = pre.find((item) => item.id == cur);
+    if (current) {
+      uri += current.location;
+      return current.children ?? [];
+    }
+    return [];
+  }, systemStore.menus as MenuItem[]);
+  systemStore.activeMenu = index;
+  if (current) {
+    systemStore.addOpened(current);
+  }
+  router.push(systemStore.activeRoutePath);
 };
 const menus = computed(() => {
   return systemStore.menus as MenuItem[];
