@@ -4,7 +4,7 @@
       ><span class="title">{{ userName }}</span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+          <el-dropdown-item command="profile" :icon="Avatar">个人中心</el-dropdown-item>
           <el-dropdown-item :divided="true" command="logout" :icon="SwitchButton">退出</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { useSystemStore } from '@/stores/system';
 import { computed } from 'vue';
-import { SwitchButton } from '@element-plus/icons-vue';
+import { SwitchButton, Avatar } from '@element-plus/icons-vue';
 const systemStore = useSystemStore();
 
 const userName = computed(() => {

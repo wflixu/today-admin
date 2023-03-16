@@ -14,7 +14,10 @@
     </el-breadcrumb>
   </div>
   <div class="center"></div>
-  <div class="right"><HeaderUser /></div>
+  <div class="right">
+    <FullScreen class="mr-3" />
+    <HeaderUser />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +25,7 @@ import { useLayoutAdminStore } from '@/stores/layout';
 import { Expand, Fold } from '@element-plus/icons-vue';
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import FullScreen from './FullScreen.vue';
 import HeaderUser from './HeaderUser.vue';
 
 const route = useRoute();
@@ -72,5 +76,9 @@ const breadItems = computed(() => {
   flex: 1;
   align-items: center;
   justify-content: center;
+}
+.right {
+  display: inline-flex;
+  align-items: center;
 }
 </style>
