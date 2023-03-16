@@ -3,11 +3,11 @@ import { treeFindNode, treeFindPath } from '@/util';
 import { defineStore } from 'pinia';
 
 export interface MenuItem {
-        title: string,
-        id: string,
-        location: string,
-        icon: string,
-        children: MenuItem[] | null,
+    title: string,
+    id: string,
+    location: string,
+    icon: string,
+    children: MenuItem[] | null,
 }
 
 export const useSystemStore = defineStore({
@@ -52,6 +52,9 @@ export const useSystemStore = defineStore({
       title:'首页',
       id:'dashboard'
     }],
+    user:{
+      nickName:'张三'
+    }
   }),
   getters: {
     activeRoutePath:(state) => {
