@@ -14,7 +14,7 @@
     </el-breadcrumb>
   </div>
   <div class="center"></div>
-  <div class="right">right</div>
+  <div class="right"><HeaderUser /></div>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +22,7 @@ import { useLayoutAdminStore } from '@/stores/layout';
 import { Expand, Fold } from '@element-plus/icons-vue';
 import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import HeaderUser from './HeaderUser.vue';
 
 const route = useRoute();
 const layoutStore = useLayoutAdminStore();
