@@ -8,16 +8,22 @@
         <Expand />
       </el-icon>
     </span>
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="crumb in breadItems" :to="{ path: crumb.path }">{{ crumb.title }}</el-breadcrumb-item>
+    </el-breadcrumb>
   </div>
-  <div class="center">cneter</div>
+  <div class="center"></div>
   <div class="right">right</div>
 </template>
 
 <script setup lang="ts">
 import { useLayoutAdminStore } from '@/stores/layout';
 import { Expand, Fold } from '@element-plus/icons-vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const layoutStore = useLayoutAdminStore();
 
 const expand = ref(layoutStore.sidebarExpanded);
@@ -26,11 +32,33 @@ const onToggle = () => {
   expand.value = !expand.value;
   layoutStore.sidebarExpanded = expand.value;
 };
+
+console.log(route.matched);
+const breadItems = computed(() => {
+  let res = route.matched
+    .filter((item) => {
+      return !item.redirect && item.path != '/dashboard';
+    })
+    .map((item) => {
+      return {
+        title: item.meta.title ?? '',
+        path: item.path,
+      };
+    });
+  console.log(res);
+
+  return res;
+});
 </script>
 
 <style scoped lang="postcss">
 .left {
+  display: inline-flex;
+  align-items: center;
   .toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;
     font-size: 20px;
     &:hover {
       color: var(--el-color-primary);

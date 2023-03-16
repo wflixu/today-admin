@@ -4,14 +4,18 @@ import LayoutAdmin from '@/layout/admin/LayoutAdmin.vue';
 export const iconsRoute: RouteRecordRaw = {
   path: '/icons',
   component: LayoutAdmin,
+  redirect:'icons/list',
   meta: {
     alive:false,
   },
   children: [
     {
-      path: '',
+      path: 'list',
       name: 'icons-default',
       component: Icons,
+      meta: {
+        title: "图标列表"
+      }
     },
   ],
 };
